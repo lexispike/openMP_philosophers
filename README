@@ -1,0 +1,90 @@
+Alyxandra Spikerman
+Written for a course at Northeastern University: High Performance Computing
+
+Q3.cpp
+
+This program takes in a number of philosophers and allows each philosopher to eat if they have two forks in hand, else the philosopher thinks. It is an OpenMP parallel program that represents philosophers with threads and forks with locks. The output is controlled with locks. The output order is not consistent but rather prints on update.
+
+
+--HOW TO COMPILE--
+g++ -std=c++11 -fopenmp Q3.cpp -o noodles
+
+OR
+
+make noodles
+
+--HOW TO RUN--
+./noodles <philosophers>
+
+--EX OUTPUT--
+
+-bash-4.2$ ./noodles 5
+Philosopher 0 eating
+- has left fork: 4
+- has right fork: 0
+
+Philosopher 3 thinking
+- waiting for left fork: 2
+- waiting for right fork: 3
+
+Philosopher 2 eating
+- has left fork: 1
+- has right fork: 2
+
+Philosopher 1 thinking
+- waiting for left fork: 0
+- waiting for right fork: 1
+
+Philosopher 4 thinking
+- waiting for left fork: 3
+- waiting for right fork: 4
+
+Philosopher 3 thinking
+- waiting for left fork: 2
+- waiting for right fork: 3
+
+Philosopher 1 eating
+- has left fork: 0
+- has right fork: 1
+
+Philosopher 4 eating
+- has left fork: 3
+- has right fork: 4
+
+Philosopher 0 thinking
+- waiting for left fork: 4
+- waiting for right fork: 0
+
+Philosopher 3 thinking
+- waiting for left fork: 2
+- waiting for right fork: 3
+
+Philosopher 2 thinking
+- waiting for left fork: 1
+- waiting for right fork: 2
+
+Philosopher 0 eating
+- has left fork: 4
+- has right fork: 0
+
+Philosopher 3 eating
+- has left fork: 2
+- has right fork: 3
+
+Philosopher 2 thinking
+- waiting for left fork: 1
+- waiting for right fork: 2
+
+Philosopher 1 thinking
+- waiting for left fork: 0
+- waiting for right fork: 1
+
+Philosopher 4 thinking
+- waiting for left fork: 3
+- waiting for right fork: 4
+
+
+
+--RESOURCES USED--
+- In class OpenMP examples
+- https://bisqwit.iki.fi/story/howto/openmp/
